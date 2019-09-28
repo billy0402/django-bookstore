@@ -10,6 +10,7 @@ django = "*"
 django-jet = "*"
 django-bootstrap4 = "*"
 ipython = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

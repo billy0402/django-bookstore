@@ -57,6 +57,7 @@ urlpatterns = [
 
     path('tutorial/', include('tutorial.urls')),
     path('books/', include('books.urls')),
+    path('api/', include('api.urls')),
 
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
