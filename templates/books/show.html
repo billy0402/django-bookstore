@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<a class="btn btn-danger float-right" href="{% url 'books:delete' book.id %}">刪除</a>
+<a class="btn btn-info float-right mr-2" href="{% url 'books:edit' book.id %}">編輯</a>
+<h2>#{{ book.id }} {{ book.name }}</h2>
+<hr/>
+<p>書名: {{ book.name }}</p>
+<p>價格: {{ book.price }}</p>
+<p>簡介:<br/>{{ book.introduction | linebreaksbr }}</p>
+
+<a class="btn btn-primary" href="{% url 'books:index' %}"><< Back</a>
+{% endblock %}

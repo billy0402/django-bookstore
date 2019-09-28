@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 
 admin.site.site_title = 'Book 網站管理'
 admin.site.site_header = 'Book 管理'
 
 urlpatterns = [
+    path('', lambda request: redirect('books:index'), name='root'),
     path('tutorial/', include('tutorial.urls')),
+    path('books/', include('books.urls')),
 
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
