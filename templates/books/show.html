@@ -1,13 +1,21 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% block main %}
-<a class="btn btn-danger float-right" href="{% url 'books:delete' book.id %}">刪除</a>
-<a class="btn btn-info float-right mr-2" href="{% url 'books:edit' book.id %}">編輯</a>
+{% if perms.books.edit_book %}
+<a href="{% url 'books:delete' book.id %}" class="btn btn-danger float-right">刪除</a>
+{% endif %}
+{% if perms.books.delete_book %}
+<a href="{% url 'books:edit' book.id %}" class="btn btn-info float-right mr-2">編輯</a>
+{% endif %}
 <h2>#{{ book.id }} {{ book.name }}</h2>
-<hr/>
+<hr>
 <p>書名: {{ book.name }}</p>
 <p>價格: {{ book.price }}</p>
-<p>簡介:<br/>{{ book.introduction | linebreaksbr }}</p>
+<p>作者: {{ book.authors.all | join:', ' }}</p>
+<p>出版社: {{ book.publish }}</p>
+<p>分類: {{ book.classification }}</p>
+<p>標籤: {{ book.tags.all | join:', ' }}</p>
+<p>簡介: {{ book.introduction | linebreaksbr }}</p>
 
-<a class="btn btn-primary" href="{% url 'books:index' %}"><< Back</a>
+<a href="{% url 'books:index' %}" class="btn btn-primary"><< Back</a>
 {% endblock %}

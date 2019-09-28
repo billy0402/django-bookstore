@@ -127,3 +127,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/login/'
+
+
+# Email
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+with open(os.path.join(BASE_DIR, 'core', 'email.txt'), 'r') as file:
+    datas = file.readlines()
+
+EMAIL_HOST_USER = datas[0].replace('\n', '')
+
+EMAIL_HOST_PASSWORD = datas[1].replace('\n', '')

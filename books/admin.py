@@ -1,18 +1,10 @@
 from django.contrib import admin
 
-from .models import Book
-
+from .models import Author, Publish, Classification, Tag, Book
 
 # Register your models here.
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
-    list_display = ['id', 'upper_case_name', 'price']
-    search_fields = ['name']
-    list_filter = ['name', 'price']
-
-    def upper_case_name(self, obj):
-        return obj.name.upper()
-    upper_case_name.short_description = 'upper_case_name'
-
-
-# admin.site.register(Book, BookAdmin)
+admin.site.register(Author)
+admin.site.register(Publish)
+admin.site.register(Classification)
+admin.site.register(Tag)
+admin.site.register(Book)
