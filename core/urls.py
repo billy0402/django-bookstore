@@ -20,6 +20,8 @@ admin.site.site_title = 'Book 網站管理'
 admin.site.site_header = 'Book 管理'
 
 urlpatterns = [
+    path('tutorial/', include('tutorial.urls')),
+
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
 ]
